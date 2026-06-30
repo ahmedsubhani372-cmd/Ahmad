@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ahmad Raza Subhani | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://raw.githubusercontent.com">
+<link rel="preload" as="image" href="https://raw.githubusercontent.com/ahmedsubhani372-cmd/Ahmad/main/profile.png">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
 <style>
 
@@ -129,6 +133,32 @@ body {
     linear-gradient(90deg, rgba(0,229,255,0.05) 1px, transparent 1px);
   background-size: 80px 80px;
   mask-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, transparent 55%);
+}
+
+/* ════════════════════════════════════════
+   MOBILE PERFORMANCE OPTIMIZATIONS
+   (lighter decorative layer + safer layout
+   on phones for faster paint & smooth scroll)
+════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .bg-beam { display: none; }
+  .bg-geo.bg-ring, .bg-geo.bg-line-h, .bg-geo.bg-line-v { display: none; }
+  .bg-orb { filter: blur(34px); animation-duration: 18s !important; }
+  .bg-orb-1, .bg-orb-2, .bg-orb-3 { width: 60vw; height: 60vw; }
+  .bg-grid-floor, .bg-grid-ceil { background-size: 90px 90px; }
+  img, video, canvas, svg { max-width: 100%; height: auto; }
+  table { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  * { -webkit-tap-highlight-color: transparent; }
+  a, button, .soc, .site-link { touch-action: manipulation; }
+}
+
+@media (max-width: 480px) {
+  .bg-orb { filter: blur(22px); }
+  .bg-geo.bg-diamond { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-beam, .bg-geo, .bg-orb { animation: none !important; }
 }
 
 /* Ambient gold orbs */
@@ -348,9 +378,10 @@ body {
   50%      { box-shadow: 0 0 20px #00E5FF, 0 0 60px #40EEFF, 0 0 120px #40EEFF; }
 }
 
-.video-wrap iframe {
+.video-wrap img {
   width: 100%; height: 100%;
   border: none; display: block;
+  object-fit: cover;
   background: var(--dark);
 }
 
@@ -3098,6 +3129,16 @@ h1 .bottom {
   50%     { transform: translateY(-16px); }
 }
 
+.robot-card.robot-static {
+  background: radial-gradient(circle at 50% 40%, rgba(0,229,255,0.18), rgba(0,229,255,0.04) 60%, transparent 75%);
+  border-radius: 50%;
+}
+.robot-card.robot-static::after {
+  content: '🤖';
+  font-size: 64px;
+  filter: drop-shadow(0 0 18px rgba(0,229,255,0.6));
+}
+
 #glCanvas {
   width: 430px; height: 520px;
   display: block;
@@ -3290,12 +3331,12 @@ h1 .bottom {
         <span class="c c-tr"></span>
         <span class="c c-bl"></span>
         <span class="c c-br"></span>
-        <iframe
-          src="robot_video_embedded.html"
-          title="Robot"
-          scrolling="no"
-          allowtransparency="true">
-        </iframe>
+        <img
+          src="https://raw.githubusercontent.com/ahmedsubhani372-cmd/Ahmad/main/profile.png"
+          alt="Ahmad Raza Subhani"
+          loading="eager"
+          decoding="async"
+        />
       </div>
     </div>
 
@@ -3776,7 +3817,8 @@ h1 .bottom {
     <div class="card-image">
       <img
         src="https://raw.githubusercontent.com/ahmedsubhani372-cmd/Ahmad/main/Brand%20identity.png"
-        alt="Brand Identity project">
+        alt="Brand Identity project"
+        loading="lazy" decoding="async">
       <div class="image-badge">Case Study</div>
     </div>
   </div>
@@ -3798,7 +3840,8 @@ h1 .bottom {
     <div class="card-image">
       <img
         src="https://raw.githubusercontent.com/ahmedsubhani372-cmd/Ahmad/main/custom%20web.png"
-        alt="Custom Web">
+        alt="Custom Web"
+        loading="lazy" decoding="async">
       <div class="image-badge">Web Design</div>
     </div>
   </div>
@@ -3820,7 +3863,8 @@ h1 .bottom {
     <div class="card-image">
       <img
         src="https://raw.githubusercontent.com/ahmedsubhani372-cmd/Ahmad/main/email%20automation.png"
-        alt="Email Automation">
+        alt="Email Automation"
+        loading="lazy" decoding="async">
       <div class="image-badge">Social Ads</div>
     </div>
   </div>
@@ -3841,7 +3885,8 @@ h1 .bottom {
     <div class="card-image">
       <img
         src="https://raw.githubusercontent.com/ahmedsubhani372-cmd/Ahmad/main/Editor.png"
-        alt="Product Visual project">
+        alt="Product Visual project"
+        loading="lazy" decoding="async">
       <div class="image-badge">Product Shot</div>
     </div>
   </div>
@@ -3860,7 +3905,7 @@ h1 .bottom {
               </div>
             </div>
             <div class="card-image">
-              <img src="https://picsum.photos/seed/portfolio-email/900/600" alt="Email Design project">
+              <img src="https://picsum.photos/seed/portfolio-email/900/600" alt="Email Design project" loading="lazy" decoding="async">
               <div class="image-badge">Email Design</div>
             </div>
           </div>
@@ -3879,7 +3924,7 @@ h1 .bottom {
               </div>
             </div>
             <div class="card-image">
-              <img src="https://picsum.photos/seed/portfolio-thumbnail/900/600" alt="Thumbnail project">
+              <img src="https://picsum.photos/seed/portfolio-thumbnail/900/600" alt="Thumbnail project" loading="lazy" decoding="async">
               <div class="image-badge">Thumbnail</div>
             </div>
           </div>
@@ -3898,7 +3943,7 @@ h1 .bottom {
               </div>
             </div>
             <div class="card-image">
-              <img src="https://picsum.photos/seed/portfolio-motion/900/600" alt="Motion UI project">
+              <img src="https://picsum.photos/seed/portfolio-motion/900/600" alt="Motion UI project" loading="lazy" decoding="async">
               <div class="image-badge">Motion UI</div>
             </div>
           </div>
@@ -3917,7 +3962,7 @@ h1 .bottom {
               </div>
             </div>
             <div class="card-image">
-              <img src="https://picsum.photos/seed/portfolio-event/900/600" alt="Event Design project">
+              <img src="https://picsum.photos/seed/portfolio-event/900/600" alt="Event Design project" loading="lazy" decoding="async">
               <div class="image-badge">Event Design</div>
             </div>
           </div>
@@ -4364,6 +4409,14 @@ requestAnimationFrame(frame);
   const card   = document.getElementById('robotCard');
   const hint   = document.getElementById('hint');
   if (!canvas || !card) return;
+
+  // Skip the heavy WebGL render loop on small/touch screens to keep the site fast
+  if (window.innerWidth <= 600) {
+    canvas.style.display = 'none';
+    card.classList.add('robot-static');
+    if (hint) hint.style.display = 'none';
+    return;
+  }
 
   const gl = canvas.getContext('webgl', { alpha: true, antialias: true });
   if (!gl) {
